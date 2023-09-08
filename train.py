@@ -322,6 +322,7 @@ def train(hyp, opt, device, callbacks):  # hyp is path/to/hyp.yaml or hyp dictio
                     loss *= 4.
 
             # Backward
+            torch.use_deterministic_algorithms(False)
             scaler.scale(loss).backward()
 
             # Optimize - https://pytorch.org/docs/master/notes/amp_examples.html
@@ -622,7 +623,7 @@ def main(opt, callbacks=Callbacks()):
             results = train(hyp.copy(), opt, device, callbacks)
             callbacks = Callbacks()
             # Write mutation results
-            keys = ('metrics/precision', 'metrics/recall', 'metrics/mAP_0.5', 'metrics/mAP_0.5:0.95', 'val/box_loss',
+            keys = ('metrics/precision', 'metrics/recall', 'metrics/mAP_0.75', 'metrics/mAP_0.75:0.95', 'val/box_loss',
                     'val/obj_loss', 'val/cls_loss')
             print_mutation(keys, results, hyp.copy(), save_dir, opt.bucket)
 
