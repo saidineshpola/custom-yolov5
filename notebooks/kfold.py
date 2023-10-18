@@ -3,10 +3,10 @@ from sklearn.model_selection import KFold
 import shutil
 from tqdm import tqdm
 # Define the number of folds
-num_folds = 10
+num_folds = 3
 
 # Define the path to the dataset directory
-data_dir = '/home/saidinesh/Desktop/Projects/yolov5/datasets/crop-datasets/ensemble1/train'
+data_dir = '/home/saidinesh/Desktop/Projects/yolov5/datasets/crop-datasets/classify-crop/train'
 
 # Get the list of class folders
 class_folders = os.listdir(data_dir)
@@ -34,9 +34,9 @@ for class_folder in tqdm(class_folders):
             dest_file = os.path.join(fold_dir, 'train', class_folder, image_files[idx])
             shutil.copy(src_file, dest_file)
 
-        for idx in val_idx:
-            src_file = os.path.join(class_path, image_files[idx])
-            dest_file = os.path.join(fold_dir, 'val', class_folder, image_files[idx])
-            shutil.copy(src_file, dest_file)
+        # for idx in val_idx:
+        #     src_file = os.path.join(class_path, image_files[idx])
+        #     dest_file = os.path.join(fold_dir, 'val', class_folder, image_files[idx])
+        #     shutil.copy(src_file, dest_file)
 
-print("Data split into 10 folds with 90% training and 10% validation for each fold and each class.")
+print(f"Data split into {num_folds} folds with 95% training and 5% validation for each fold and each class.")
