@@ -3,10 +3,10 @@ from sklearn.model_selection import KFold
 import shutil
 from tqdm import tqdm
 # Define the number of folds
-num_folds = 3
+num_folds = 20
 
 # Define the path to the dataset directory
-data_dir = '/home/saidinesh/Desktop/Projects/yolov5/datasets/crop-datasets/classify-crop/train'
+data_dir = '/home/saidinesh/Desktop/Projects/yolov5/datasets/crop-datasets/ensemble1/classify-crop-all/train'
 
 # Get the list of class folders
 class_folders = os.listdir(data_dir)

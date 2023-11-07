@@ -21,7 +21,8 @@ def create_tfrecord_example(image_path, class_name, target_size=(640, 640)):
     # Decode the image (assuming JPEG format)
     image = tf.image.decode_jpeg(image, channels=3)
 
-    image = tf.image.resize(image, target_size)
+    image = tf.image.resize_with_pad(image, target_height=640,
+                                     target_width=640)  # image, target_size)
     image = tf.cast(image, tf.uint8)  # Convert to uint8
     encoded_image = tf.image.encode_jpeg(image).numpy()  # Encode as JPEG
 
@@ -70,8 +71,8 @@ def main(args):
     val_data_dir = args.data_dir + '/val'
 
     # Define the output paths for TFRecord files
-    train_tfrecord_filename = args.train_tfrecord_filename or '../train_crop_final.tfrecords'
-    val_tfrecord_filename = args.val_tfrecord_filename or '../val_crop_final.tfrecords'
+    train_tfrecord_filename = args.train_tfrecord_filename or '../train_crop20f10.tfrecords'
+    val_tfrecord_filename = args.val_tfrecord_filename or '../val_crop20f10.tfrecords'
 
     # Create TFRecord files for train and val
     create_tfrecord_file(train_data_dir, train_tfrecord_filename)
@@ -80,7 +81,8 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Create TFRecord files for training and validation datasets.')
-    parser.add_argument('--data_dir', default='/home/saidinesh/Desktop/Projects/yolov5/datasets/crop-datasets/classify-crop-final',
+    parser.add_argument('--data_dir',
+                        default='/home/saidinesh/Desktop/Projects/yolov5/datasets/crop-datasets/ensemble1/20fold/fold_10',
                         help='Path to the training data directory')
     parser.add_argument('--train_tfrecord_filename', default=None,
                         help='Filename for the training TFRecord file (default: train_crop.tfrecords)')
