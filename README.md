@@ -7,10 +7,10 @@ I have created custom YOLOv5 configurations and placed them in the `models` fold
 
 ### Training with Custom Configuration
 
-Assuming you have created a custom configuration file named `custom_config.yaml`, you can use it for training with the following command:
+If you want to train custom yolov5 with SWIN head using `yolov5swin.yaml`, you can use the following command:
 
 ```bash
-python train.py --cfg models/custom_config.yaml --data your_dataset.yaml
+python train.py --cfg models/yolov5swin.yaml --data your_dataset.yaml
 ```
 <br>
   <p>
