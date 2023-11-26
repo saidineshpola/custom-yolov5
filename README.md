@@ -1,4 +1,18 @@
+
 <div align="center">
+
+  ## Custom Models
+
+I have created custom YOLOv5 configurations and placed them in the `models` folder, you can use them with the `train.py` script. Here's how:
+
+### Training with Custom Configuration
+
+Assuming you have created a custom configuration file named `custom_config.yaml`, you can use it for training with the following command:
+
+```bash
+python train.py --cfg models/custom_config.yaml --data your_dataset.yaml
+```
+<br>
   <p>
     <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
       <img width="100%" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov5/v70/splash.png"></a>
