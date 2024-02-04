@@ -17,6 +17,10 @@ python train.py --cfg models/yolov5swin.yaml --data your_dataset.yaml
     <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
       <img width="100%" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov5/v70/splash.png"></a>
   </p>
+### TPU classification notebook using maxViT/Efficientnet
+<a target="_blank" href="https://colab.research.google.com/github/saidineshpola/custom-yolov5/blob/main/TPU_TF_mosquito_classification_aicrowd.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 <br>
